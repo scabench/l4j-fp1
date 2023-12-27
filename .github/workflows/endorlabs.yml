@@ -25,13 +25,13 @@ jobs:
     #### Package Build Instructions
     ### Use this section to define the build steps used by your software package.
     ### Endor Labs builds your software for you where possible but the required build tools must be made availible.
-     - name: Setup Java
-       uses: actions/setup-java@v3
-       with:
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
          distribution: 'microsoft'
          java-version: '17'
-     - name: Build Package
-       run: mvn clean install
+    - name: Build Package
+      run: mvn clean install
     - name: Endor Labs scan pull request
       if: github.event_name == 'pull_request'
       uses: endorlabs/github-action@b51bd06466b545f01a6ac788e3e1147695d3936c
