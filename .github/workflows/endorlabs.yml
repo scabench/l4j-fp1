@@ -31,7 +31,8 @@ jobs:
          distribution: 'microsoft'
          java-version: '17'
     - name: Build Package
-      run: mvn clean install
+      # skip tests -- this requires a complicated setup starting a ldap server and should be irrelevant for the SCA analysis
+      run: mvn clean install -Dmaven.test.skip=true
     - name: Endor Labs scan pull request
       if: github.event_name == 'pull_request'
       uses: endorlabs/github-action@b51bd06466b545f01a6ac788e3e1147695d3936c
